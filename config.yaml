@@ -1,0 +1,62 @@
+# Areeb Model Web Configuration
+
+# Qwen3 Model Settings
+model:
+  endpoint: "http://127.0.0.1:8000"
+  api_key: "your-secret-api-key-here"
+  model_name: "Qwen3-30B-A3B-GPTQ-Int4"
+  timeout: 300
+
+# Proxy Server Settings
+server:
+  host: "0.0.0.0"
+  port: 8001
+  debug: false
+  workers: 4
+
+# Security Settings
+security:
+  allowed_directories:
+    - "/home"
+    - "/tmp"
+    - "/var/tmp"
+  blocked_directories:
+    - "/etc"
+    - "/root"
+    - "/sys"
+    - "/proc"
+  allowed_commands:
+    - "ls"
+    - "cat"
+    - "grep"
+    - "find"
+    - "git"
+    - "npm"
+    - "pip"
+    - "python"
+    - "node"
+    - "curl"
+    - "wget"
+  blocked_commands:
+    - "rm -rf"
+    - "sudo"
+    - "su"
+    - "chmod 777"
+    - "dd"
+  max_file_size_mb: 10
+  max_output_lines: 1000
+
+# Tool Settings
+tools:
+  enable_file_operations: true
+  enable_terminal: true
+  enable_web_search: true
+  enable_edit_operations: true
+  auto_apply_edits: false
+
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/areeb-model-web.log"
+  max_size_mb: 100
+  backup_count: 5 
